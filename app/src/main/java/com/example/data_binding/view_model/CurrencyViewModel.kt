@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.data_binding.model.CurrencyModel
 import com.example.data_binding.model.CurrencyPair
 import com.example.data_binding.model.Quotes
 import com.example.data_binding.repository.CurrencyRepository
@@ -37,7 +38,7 @@ class CurrencyViewModel(private val repository: CurrencyRepository) : ViewModel(
         repository.getCurrency()
     }
 
-    fun insertCurrencies(currencies: List<Quotes>) = viewModelScope.launch {
+    fun insertCurrencies(currencies: CurrencyModel) = viewModelScope.launch {
         repository.insertCurrencies(currencies)
     }
 
