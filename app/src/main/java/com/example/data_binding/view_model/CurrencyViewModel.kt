@@ -28,6 +28,10 @@ class CurrencyViewModel(private val repository: CurrencyRepository) : ViewModel(
                         CurrencyPair(name = it.first.toString(),value = it.second.toString())
                     }
                     currenciesLiveData.value = currencyPair
+                   withContext(Dispatchers.IO){
+                       insertCurrencies(response)
+                   }
+
 
 
             }
